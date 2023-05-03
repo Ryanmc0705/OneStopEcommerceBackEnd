@@ -28,3 +28,4 @@ Route::middleware('auth:sanctum')->apiResource("Category",CategoryController::cl
 Route::middleware('auth:sanctum')->apiResource("SubCategory",SubCategoryController::class);
 Route::middleware('auth:sanctum')->apiResource("Product",ProductController::class);
 Route::post("login",[UserController::class,"login"])->name("user.login");
+Route::middleware("auth:sanctum")->post("logout",[UserController::class,"logout"])->name("user.logout");

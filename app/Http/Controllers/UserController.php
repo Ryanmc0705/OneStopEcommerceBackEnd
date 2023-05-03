@@ -120,4 +120,11 @@ class UserController extends Controller
         User::where($id)->delete();
         return response(["message" => "deleted"]);
     }
+
+    public function logout()
+    {
+        $user = auth()->user();
+        $user->tokens()->delete();
+        return response(["message" => "logout succesfully"]);
+    }
 }
