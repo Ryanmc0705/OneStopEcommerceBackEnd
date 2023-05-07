@@ -8,6 +8,5 @@ module.exports = defineConfig({
   },
   transpileDependencies: [
     'quasar'
-  ],
-  publicPath: './'
+  ]
 })
