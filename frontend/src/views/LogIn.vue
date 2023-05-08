@@ -1,19 +1,29 @@
 <script setup>
   import {ref,reactive} from 'vue';
   import axios from 'axios';
+  import router from '../router';
+  import {useCounterStore} from '../stores/counter';
 
   const user_data = reactive({});
   const invalid = ref(false);
-  const loading = ref(false)
-
+  const loading = ref(false);
+  const store = useCounterStore();
+  const logo = ref("../../public/logosm.png");
   const logIn = async()=>{
     loading.value = true;
+ 
     try{
       const{data} = await axios.post("login",user_data);
+     
+      store.setName(data.name);
+      store.setEmail(data.email);
+      store.setApiToken(data.token);
       invalid.value = false;
-      //alert("success");
+      router.push("/DashBoard");
+
     }catch(error){
       invalid.value = true;
+      console.log(error);
     }
     loading.value = false;
    
@@ -28,7 +38,12 @@
         <q-card-section>
           <div class="q-pa-md">
             <div class="q-gutter-md">
-              <h5 class="text-center">One Stop E-Commerce</h5>
+              <q-avatar style="display: block;
+                                                    margin-left: auto;
+                                                    margin-right: auto;">
+                                            <img :src="logo">
+                                        </q-avatar>
+              <h5 class="text-center">MMS Reference Table</h5>
               <div class="alert-message">
                 <q-banner dense inline-actions class="text-white bg-red" v-if="invalid">
                   Invalid Username or Password
@@ -41,12 +56,12 @@
                 :showing="loading"
               />
 
-              <q-input type="email" label="Email/Username" v-model="user_data.email">
+              <q-input dense rounded outlined type="email" label="Email/Username" v-model="user_data.email">
                 <template v-slot:prepend>
                   <q-icon name="perm_identity" />
                 </template>
               </q-input>
-              <q-input type="password" label="Password"  v-model="user_data.password">
+              <q-input dense rounded outlined type="password" label="Password"  v-model="user_data.password">
                 <template v-slot:prepend>
                   <q-icon name="lock" />
                 </template>

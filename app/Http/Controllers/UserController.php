@@ -60,7 +60,9 @@ class UserController extends Controller
             $token = $user->createToken($user->email);
             return response([
                 "message"=> "login success",
-                "token" =>  $token->plainTextToken
+                "token" =>  $token->plainTextToken,
+                "name"  =>  strtoupper( $user->first_name." ".$user->last_name),
+                "email" => $user->email
             ],200);
         }else{
             return response([

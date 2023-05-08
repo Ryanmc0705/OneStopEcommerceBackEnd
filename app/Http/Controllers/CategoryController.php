@@ -14,7 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return response(["category"=>Category::all()]);
+        $keyword = $_GET["keyword"];
+        $category = Category::where("category_name","LIKE","%".$keyword."%")->paginate(15);
+        return $category;
     }
 
     /**
