@@ -14,8 +14,8 @@ class AlterProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn("image");
-            $table->dropColumn("status");
+           // $table->dropColumn("image");
+            //$table->dropColumn("status");
             // $table->string("image",100)->nullable();
             // $table->string("status")->nullable();
         });

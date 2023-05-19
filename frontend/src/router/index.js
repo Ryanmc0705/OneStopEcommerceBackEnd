@@ -6,6 +6,7 @@ import Category from '../views/Category.vue';
 import SubCategory from '../views/SubCategory.vue';
 import Brand from '../views/Brand.vue';
 import Product from '../views/Product.vue';
+import Sample from '../views/Sample.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/login',
       name: 'LogIn',
       component: LogIn
+    },
+    {
+      path: '/sample',
+      name: 'sample',
+      component: Sample
     },
     {
       path: '/admin',

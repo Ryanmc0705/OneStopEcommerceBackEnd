@@ -31,8 +31,9 @@
 </script>
 
 <template>
+  <q-layout>
     <q-page-container>
-        <q-page padding>
+    <q-page padding>
     <div class="absolute-center" style="width: 450px;margin-bottom: 300px!important;">
       <q-card padding="50px;">
         <q-card-section>
@@ -78,5 +79,7 @@
     </div>
   </q-page>
     </q-page-container>
+  </q-layout>
+    
   
 </template>

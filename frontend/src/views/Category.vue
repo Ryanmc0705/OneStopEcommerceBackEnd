@@ -59,6 +59,10 @@ const onRequest = async (props) => {
 </script>
 <template>
     <div class="row">
+        <div class="q-pa-md q-gutter-sm">
+            <q-btn color="primary" icon="add" label=" New Category" />
+            
+        </div>
         <q-table
             :rows="rows"
             :columns="columns"
@@ -71,7 +75,7 @@ const onRequest = async (props) => {
                 backgroundColor: '#027BE3',
                 color: '#FFFFFF',
             }"
-            style="width: 100%;"
+            style="width: 100%"
         >
             <template #loading>
                 <q-inner-loading showing color="blue" />
@@ -98,13 +102,12 @@ const onRequest = async (props) => {
                 </q-input>
             </template>
         </q-table>
-  
     </div>
-    
+  
 </template>
 <style>
-  .content {
+.content {
     max-width: 100%;
     height: 100%;
-  }
+}
 </style>

@@ -12,14 +12,18 @@ class UserFactory extends Factory
      *
      * @return array
      */
+    
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
+            'first_name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+            'address' => $this->faker->address(),
             'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
+            'contact_no' => $this->faker->phoneNumber(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'user_type' => "admin",
+            'last_login' => $this->faker->dateTime('now')
         ];
     }
 
